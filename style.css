@@ -1,16 +1,122 @@
 
-/* beginning of code*/
+body{
+  background: #EDEBC2;
+}
+
+header {
+    padding:0px;
+    text-align:center;
+}
 
 h1 {
-  color:red;
+  font-family: 'Frijole', cursive;
   font-size: 70px;
-  font-family: 'Ravi Prakash', cursive;
+  color: #962200;
+  text-shadow: 2px 2px #661700;
+}
+
+span img {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  height: 180px;
+  width: 180px;
+}
+
+nav {
+    text-align:center;
+    color: green;
+}
+ul li {
+    display:inline;
+    padding-left:5px;
+    padding-right:5px;
+    text-align:left;
+    font-size:26px;
+    font-weight:bold;
+}
+
+a {
+  color: #638200;
+}
+
+aside {
+    margin-top:5px;
+    background-color:#59680A;
+    padding:5px;
+    text-align:center;
+    font-style:italic;
+    border:2px solid black;
+}
+
+section {
+    padding:5px;
+    border: 1px solid black;
+    margin-top:5px;
+    background:#BCD9AF;
+}
+
+.pfresh {
+  color: #B5A200;
+}
+
+h2 {
+  color: #962200;
+  font-family: 'Sigmar One', cursive;
+}
+
+p {
+  font-size: 20px;
+  font-family: 'Walter Turncoat', cursive;
+  font-weight: bold;
+  color: brown;
+}
+
+footer p {
+    padding:5px;
+    text-align:center;
+    font-weight:bold;
+    font-style: normal;
+    color: black;
+}
+
+h3 {
+  font-size: 24px;
   text-align: center;
 }
 
-img {
-  text-align: center;
-  height: 50px
-  width: 100px;
-  border: 1px solid black;
+div.cookies img{
+ float: left;
+ width: 23%;
+ height: 200px;
+ margin: 15px;
+ border: 3px solid #73AD21;
+ border-radius: 5px;
+}
+
+div.tshirts img{
+ float: left;
+ width: 22%;
+ height: 200px;
+ margin: 15px;
+ border: 3px solid #73AD21;
+ border-radius: 5px;
+}
+
+div.mugs img{
+  float: left;
+  width: 22%;
+  height: 200px;
+  margin: 15px;
+  border: 3px solid #73AD21;
+  border-radius: 5px;
+}
+
+div.keychain img{
+  float: left;
+  width: 22%;
+  height: 200px;
+  margin: 15px;
+  border: 3px solid #73AD21;
+  border-radius: 5px;
 }
