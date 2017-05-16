@@ -12,11 +12,12 @@ Store.prototype.randomNumGenerator = function() {
 };
 //for loop is counting through amount of walk in customers and cookies sold per-hour in 15 hour day.
 Store.prototype.randomCookieSales = function() {
-  for (var i = 0; i < 15; i++) {
+  for (var i = 0; i < 14; i++) {
     this.cookieSales.push(Math.floor(this.avgcookies * this.randomNumGenerator()));
   }
   console.log(this.cookieSales);
 };
+
 
 //all the constructors for the stores and their data.
 var FirstPike = new Store(23,65,6.3);
@@ -31,3 +32,13 @@ SeaTacAirport.randomCookieSales();
 SeattleCenter.randomCookieSales();
 CapitolHill.randomCookieSales();
 Alki.randomCookieSales();
+
+// diplaying each array value of the cities in ul on to the browser
+var hours = [this.cookieSales];
+
+var  listOut = document.getElementById('ul');
+var data = [];
+
+for (var i = 0; i < hours.length; i++) {
+  data.push('<li>' + listOut[i].cookieSales + '</li>');
+}
