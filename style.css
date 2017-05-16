@@ -1,3 +1,16 @@
+
+/* beginning of code*/
+
 h1 {
   color:red;
+  font-size: 70px;
+  font-family: 'Ravi Prakash', cursive;
+  text-align: center;
+}
+
+img {
+  text-align: center;
+  height: 50px
+  width: 100px;
+  border: 1px solid black;
 }
