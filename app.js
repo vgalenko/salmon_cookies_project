@@ -18,6 +18,16 @@ Store.prototype.randomCookieSales = function() {
   console.log(this.cookieSales);
 };
 
+// diplaying each array value of the cities in ul on to the browser
+
+    var hours = document.getElementById("ul");
+
+    for (var i = 0; i < cookieSales.length; i++ ) {
+        var hours = document.createElement("ul");
+        hours.innerHTML = cookieSales[i];
+        hours.appendChild();
+    } sdf
+
 
 //all the constructors for the stores and their data.
 var FirstPike = new Store(23,65,6.3);
@@ -32,13 +42,3 @@ SeaTacAirport.randomCookieSales();
 SeattleCenter.randomCookieSales();
 CapitolHill.randomCookieSales();
 Alki.randomCookieSales();
-
-// diplaying each array value of the cities in ul on to the browser
-var hours = [this.cookieSales];
-
-var  listOut = document.getElementById('ul');
-var data = [];
-
-for (var i = 0; i < hours.length; i++) {
-  data.push('<li>' + listOut[i].cookieSales + '</li>');
-}
