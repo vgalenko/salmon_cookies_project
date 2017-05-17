@@ -5,6 +5,7 @@ function Store(location, minimum, maximum, avgcookies) {
   this.maximum = maximum;
   this.avgcookies = avgcookies;
   this.cookieSales = [];
+  this.totalcookies = 0;
 }
 
 // this prototype function generates the amount of random customers that come through the door
@@ -21,11 +22,20 @@ Store.prototype.randomCookieSales = function() {
   console.log(this.cookieSales);
 };
 
+// for loop collects all the data from the total cookie calculator
+Store.prototype.totalCookiesCalculator = function() {
+  for (var j = 0; j < this.cookieSales.length; j++) {
+    this.totalcookies += this.cookieSales[j];
+  }
+  return this.totalcookies;
+};
+
 // displaying each array value of the cities in ul to the browser
 function listHrs(store) {
   var container = document.createElement('div');
   container.innerHTML = '<p>' + store.location + '</p>';
   document.body.appendChild(container);
+
 
   var list = document.createElement('ul');
   var list_arr = [];
@@ -34,16 +44,18 @@ function listHrs(store) {
     list_arr.push('<li>' + storeHours[i]+ ': ' + store.cookieSales[i] + '</li>');
 
   }
+
+  list_arr.push('<li> Total: ' + store.totalCookiesCalculator() + '</li>');// adds total to the li
   var full_list = list_arr.join('');
   list.innerHTML = full_list;
   document.body.appendChild(list);
 }
 
 //all the constructors for the stores and their data.
-var FirstPike = new Store('FirstPike',23,65,6.3);
-var SeaTacAirport = new Store('SeaTacAirport',3,24,1.2);
-var SeattleCenter = new Store('SeattleCenter',11,38,3.7);
-var CapitolHill = new Store('CapitolHill',20,38,2.3);
+var FirstPike = new Store('First Pike',23,65,6.3);
+var SeaTacAirport = new Store('Sea Tac Airport',3,24,1.2);
+var SeattleCenter = new Store('Seattle Center',11,38,3.7);
+var CapitolHill = new Store('Capitol Hill',20,38,2.3);
 var Alki = new Store('Alki',2,16,4.6);
 
 //storing results for each location of the amount of cookie sales each hour
