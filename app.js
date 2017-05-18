@@ -40,6 +40,11 @@ console.log('tHead', tHead);
 function renderHeader() {
   var hourRow = document.createElement('tr'); //creating table row element and assignming the value to var hourRow
   tHead.appendChild(hourRow); // hourRow is being appended into tHead as child element
+
+  var emptyCell = document.createElement('td'); // created td element and assigned the value to emptyCell variable
+  // emptyCell.innerHTML = 'vitaliy';
+  hourRow.appendChild(emptyCell); // emptyCell is being appended into hourRow as child element
+
   for (var i=0; i < storeHours.length; i++) { // looping through storeHours array in order to display hours in individual td element
     // console.log(storeHours);
     var hourCell = document.createElement('td');// creating individual td element and assigning value to var hourCell
@@ -51,42 +56,60 @@ function renderHeader() {
 renderHeader(); // calling function to render header on to browser window
 
 
-// displaying each array value of the cities in ul to the browser
-// function listHrs(store) {
-//   var container = document.createElement('div');
-//   container.innerHTML = '<p>' + store.location + '</p>';
-//   document.body.appendChild(container);
-//
-//
-//   var list = document.createElement('ul');
-//   var list_arr = [];
-// looping through each storeHours array to display hours in browser
-//   for (var i = 0; i < storeHours.length; i++) {
-//     list_arr.push('<li>' + storeHours[i]+ ': ' + store.cookieSales[i] + '</li>');
-//
-//   }
-//
-//   list_arr.push('<li> Total: ' + store.totalCookiesCalculator() + '</li>');// adds total to the li
-//   var full_list = list_arr.join('');
-//   list.innerHTML = full_list;
-//   document.body.appendChild(list);
-// }
+var tBody = document.getElementById('shell'); // getting shell ID from sales HTML 
+console.log('shell', tBody);
+
+function renderStores() {
+  var storeRow = document.createElement('tr'); //creating table row element and assignming the value to var storeRow
+  tBody.appendChild(storeRow); // storeRow is being appended into tBody as child element
+
+  var storeLocations = ['FirstPike', 'SeaTacAirport', 'SeattleCenter', 'CapitolHill', 'Alki'];
+
+  for (var i = 0; i < storeLocations.length; i++) { // looping through storeLocations array in order to display stores
+    var storeCell = document.createElement('tr'); //creating individual tr element and assigning value to var storeCel
+    storeCell.innerHTML = storeLocations[i]; // itterating through storeHours array and assigning specific index value to innerHTML
+    storeRow.appendChild(storeCell); // attaching/appending var storeCell to var storeRow as a child element
+    console.log('shell', storeCell);
+  }
+}
+renderStores();
+
+//displaying each array value of the cities in ul to the browser
+function listHrs(store) {
+  var container = document.createElement('div');
+  container.innerHTML = '<p>' + store.location + '</p>';
+  document.body.appendChild(container);
+
+
+  var list = document.createElement('ul');
+  var list_arr = [];
+//looping through each storeHours array to display hours in browser
+  for (var i = 0; i < storeHours.length; i++) {
+    list_arr.push('<li>' + storeHours[i]+ ': ' + store.cookieSales[i] + '</li>');
+
+  }
+
+  list_arr.push('<li> Total: ' + store.totalCookiesCalculator() + '</li>');// adds total to the li
+  var full_list = list_arr.join('');
+  list.innerHTML = full_list;
+  document.body.appendChild(list);
+}
 
 //all the constructors for the stores and their data.
 var FirstPike = new Store('First Pike',23,65,6.3);
-// var SeaTacAirport = new Store('Sea Tac Airport',3,24,1.2);
-// var SeattleCenter = new Store('Seattle Center',11,38,3.7);
-// var CapitolHill = new Store('Capitol Hill',20,38,2.3);
-// var Alki = new Store('Alki',2,16,4.6);
+var SeaTacAirport = new Store('Sea Tac Airport',3,24,1.2);
+var SeattleCenter = new Store('Seattle Center',11,38,3.7);
+var CapitolHill = new Store('Capitol Hill',20,38,2.3);
+var Alki = new Store('Alki',2,16,4.6);
 
 //storing results for each location of the amount of cookie sales each hour
 FirstPike.randomCookieSales();
-// SeaTacAirport.randomCookieSales();
-// SeattleCenter.randomCookieSales();
-// CapitolHill.randomCookieSales();
-// Alki.randomCookieSales();
-// listHrs(FirstPike);
-// listHrs(SeaTacAirport);
-// listHrs(SeattleCenter);
-// listHrs(CapitolHill);
-// listHrs(Alki);
+SeaTacAirport.randomCookieSales();
+SeattleCenter.randomCookieSales();
+CapitolHill.randomCookieSales();
+Alki.randomCookieSales();
+listHrs(FirstPike);
+listHrs(SeaTacAirport);
+listHrs(SeattleCenter);
+listHrs(CapitolHill);
+listHrs(Alki);
