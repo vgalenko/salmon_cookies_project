@@ -1,12 +1,12 @@
 // declared an array for store hours
-var storeHours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
+var storeHours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', 'Total'];
 //method to calculate data for constructor objects of our 5 stores
 function Store(location, minimum, maximum, avgcookies) {
   this.location = location;
   this.minimum = minimum;
   this.maximum = maximum;
   this.avgcookies = avgcookies;
-  this.cookieSales = [];
+  this.cookieSales = ['<td>' + location + '</td>'];
   this.totalcookies = 0;
 }
 
@@ -17,18 +17,15 @@ Store.prototype.randomNumGenerator = function() {
 
 //for loop is counting through amount of walk in customers and cookies sold per-hour in 15 hour day.
 Store.prototype.randomCookieSales = function() {
-  for (var i = 0; i < 14; i++) {
-    this.cookieSales.push(Math.floor(this.avgcookies * this.randomNumGenerator()));
-  }
-  console.log(this.cookieSales);
-};
 
-// for loop collects all the data from the total cookie calculator
-Store.prototype.totalCookiesCalculator = function() {
-  for (var j = 0; j < this.cookieSales.length; j++) {
-    this.totalcookies += this.cookieSales[j];
+  for (var i = 0; i < 14; i++) {
+    var random = Math.floor(this.avgcookies * this.randomNumGenerator());
+    console.log(random);
+    this.cookieSales.push('<td>' + Math.floor( random) +'</td>');
+    this.totalcookies += random;
   }
-  return this.totalcookies;
+  this.cookieSales.push('<td>'+ this.totalcookies+ '</td>');
+  console.log(this.cookieSales);
 };
 
 // header function
@@ -56,44 +53,14 @@ function renderHeader() {
 renderHeader(); // calling function to render header on to browser window
 
 
-var tBody = document.getElementById('shell'); // getting shell ID from sales HTML 
+var tBody = document.getElementById('shell'); // getting shell ID from sales HTML
 console.log('shell', tBody);
 
-function renderStores() {
-  var storeRow = document.createElement('tr'); //creating table row element and assignming the value to var storeRow
-  tBody.appendChild(storeRow); // storeRow is being appended into tBody as child element
-
-  var storeLocations = ['FirstPike', 'SeaTacAirport', 'SeattleCenter', 'CapitolHill', 'Alki'];
-
-  for (var i = 0; i < storeLocations.length; i++) { // looping through storeLocations array in order to display stores
-    var storeCell = document.createElement('tr'); //creating individual tr element and assigning value to var storeCel
-    storeCell.innerHTML = storeLocations[i]; // itterating through storeHours array and assigning specific index value to innerHTML
-    storeRow.appendChild(storeCell); // attaching/appending var storeCell to var storeRow as a child element
-    console.log('shell', storeCell);
-  }
-}
-renderStores();
-
-//displaying each array value of the cities in ul to the browser
-function listHrs(store) {
-  var container = document.createElement('div');
-  container.innerHTML = '<p>' + store.location + '</p>';
-  document.body.appendChild(container);
-
-
-  var list = document.createElement('ul');
-  var list_arr = [];
-//looping through each storeHours array to display hours in browser
-  for (var i = 0; i < storeHours.length; i++) {
-    list_arr.push('<li>' + storeHours[i]+ ': ' + store.cookieSales[i] + '</li>');
-
-  }
-
-  list_arr.push('<li> Total: ' + store.totalCookiesCalculator() + '</li>');// adds total to the li
-  var full_list = list_arr.join('');
-  list.innerHTML = full_list;
-  document.body.appendChild(list);
-}
+Store.prototype.renderStores = function() {
+  var tableRow = document.createElement('tr');
+  tableRow.innerHTML = this.cookieSales.join('');
+  tBody.appendChild(tableRow);
+};
 
 //all the constructors for the stores and their data.
 var FirstPike = new Store('First Pike',23,65,6.3);
@@ -108,8 +75,9 @@ SeaTacAirport.randomCookieSales();
 SeattleCenter.randomCookieSales();
 CapitolHill.randomCookieSales();
 Alki.randomCookieSales();
-listHrs(FirstPike);
-listHrs(SeaTacAirport);
-listHrs(SeattleCenter);
-listHrs(CapitolHill);
-listHrs(Alki);
+
+FirstPike.renderStores();
+SeaTacAirport.renderStores();
+SeattleCenter.renderStores();
+CapitolHill.renderStores();
+Alki.renderStores();
