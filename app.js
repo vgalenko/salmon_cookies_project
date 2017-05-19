@@ -10,51 +10,43 @@ function Store(location, minimum, maximum, avgcookies) {
   this.totalcookies = 0;
 }
 
-// this prototype function generates the amount of random customers that come through the door
+// this prototype function generates the amount of random cookies sold per hour
 Store.prototype.randomNumGenerator = function() {
-  return Math.floor(Math.random() * (this.maximum - this.minimum)) + this.minimum;
+  return Math.floor(Math.random() * (this.maximum - this.minimum)) + this.minimum; // random cookies sold
 };
 
-//for loop is counting through amount of walk in customers and cookies sold per-hour in 15 hour day.
-Store.prototype.randomCookieSales = function() {
 
-  for (var i = 0; i < 14; i++) {
-    var random = Math.floor(this.avgcookies * this.randomNumGenerator());
-    console.log(random);
-    this.cookieSales.push('<td>' + Math.floor( random) +'</td>');
-    this.totalcookies += random;
+Store.prototype.randomCookieSales = function() { // using randomCookieSales function to find out cookies sold per hour
+
+  for (var i = 0; i < 14; i++) { //loops through 14 hours of working day
+    var random = Math.floor(this.avgcookies * this.randomNumGenerator()); //calling randomNumGenerator function and multiplying by average cookies to get total/hour cookies
+
+    this.cookieSales.push('<td>' + Math.floor( random) +'</td>'); //taking random amout of cookies sold per hour and getting rid of decimals with MathFloor and gives us total cookie sales per/hour
+    this.totalcookies += random; // spits out amount of total cookies per day without decimals
   }
-  this.cookieSales.push('<td>'+ this.totalcookies+ '</td>');
-  console.log(this.cookieSales);
+  this.cookieSales.push('<td>'+ this.totalcookies+ '</td>'); //this totalcookies are inserted in between td's and pushes it with cookieSales per hour
 };
 
 // header function
-var tHead = document.getElementById('hours-listed');
-console.log('tHead', tHead);
-//var hourRow = document.createElement('tr');
-//tHead.appendChild(hourRow);
+var tHead = document.getElementById('hours-listed'); //taking created element id and assigning it to tHead variable
 
 function renderHeader() {
   var hourRow = document.createElement('tr'); //creating table row element and assignming the value to var hourRow
   tHead.appendChild(hourRow); // hourRow is being appended into tHead as child element
 
   var emptyCell = document.createElement('td'); // created td element and assigned the value to emptyCell variable
-  // emptyCell.innerHTML = 'vitaliy';
   hourRow.appendChild(emptyCell); // emptyCell is being appended into hourRow as child element
 
   for (var i=0; i < storeHours.length; i++) { // looping through storeHours array in order to display hours in individual td element
-    // console.log(storeHours);
     var hourCell = document.createElement('td');// creating individual td element and assigning value to var hourCell
     hourCell.innerHTML = storeHours[i]; // itterating through storeHours array and assigning specific index value to the innerHTML of previously created element hourCell
     hourRow.appendChild(hourCell); // attaching/appending var hourCell to var hourRow as a child element
-    console.log('hourCell',hourCell);
   }
 }
 renderHeader(); // calling function to render header on to browser window
 
 
 var tBody = document.getElementById('shell'); // getting shell ID from sales HTML
-console.log('shell', tBody);
 
 Store.prototype.renderStores = function() {
   var tableRow = document.createElement('tr');
