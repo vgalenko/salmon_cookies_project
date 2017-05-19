@@ -1,8 +1,9 @@
 
 body{
-  background: #EDEBC2;
+  background: #white;
+  width: 1200px;
+  margin:auto;
 }
-
 header {
     padding:0px;
     text-align:center;
@@ -10,28 +11,28 @@ header {
 
 h1 {
   font-family: 'Frijole', cursive;
-  font-size: 70px;
+  font-size: 50px;
   color: #962200;
-  text-shadow: 2px 2px #661700;
-}
-
-table, thead, tbody, td, tr {
-  border: 1px solid black;
+  text-shadow: 1px 2px #661700;
 }
 
 span img {
   position: absolute;
-  top: 20px;
-  left: 20px;
-  height: 180px;
-  width: 180px;
+  top: 40px;
+  left: 40px;
+  height: 200px;
+  width: 200px;
+}
+
+figure img {
+  opacity: 0.8;
 }
 
 nav {
-    text-align:center;
-    color: green;
+    text-align: center;
 }
 ul li {
+    text-align: center;
     display:inline;
     padding-left:5px;
     padding-right:5px;
@@ -41,23 +42,29 @@ ul li {
 }
 
 a {
-  color: #638200;
+  color: #494946;
+  border: 1px solid #F3F3F3;
+  padding: 0px 5px 0px 5px;
+  background: #F3F3F3;
+  border-radius: 3px;
+  text-decoration: none;
+
 }
 
 aside {
     margin-top:5px;
-    background-color:#59680A;
+    background-color:#D9D7B7;
     padding:5px;
     text-align:center;
     font-style:italic;
-    border:2px solid black;
+    border:1px solid #D9D7B7;
 }
 
 section {
     padding:5px;
-    border: 1px solid black;
+    border: 1px solid #E7E7E7;
     margin-top:5px;
-    background:#BCD9AF;
+    background:#E7E7E7;
 }
 
 .pfresh {
@@ -73,7 +80,7 @@ p {
   font-size: 20px;
   font-family: 'Walter Turncoat', cursive;
   font-weight: bold;
-  color: brown;
+  color: #343433;
 }
 
 footer p {
@@ -89,38 +96,37 @@ h3 {
   text-align: center;
 }
 
-div.cookies img{
- float: left;
- width: 23%;
- height: 200px;
- margin: 15px;
- border: 3px solid #73AD21;
- border-radius: 5px;
-}
-
-div.tshirts img{
+div.bottom_img img{
  float: left;
  width: 22%;
  height: 200px;
  margin: 15px;
- border: 3px solid #73AD21;
- border-radius: 5px;
+ border: 1px solid #DCDCD7;
+ border-radius: 3px;
 }
 
-div.mugs img{
-  float: left;
-  width: 22%;
+table {
+  margin-left: 160px;
   height: 200px;
-  margin: 15px;
-  border: 3px solid #73AD21;
-  border-radius: 5px;
+  width: 800px;
+  font-weight: bold;
+  font-size: 18px;
 }
 
-div.keychain img{
-  float: left;
-  width: 22%;
-  height: 200px;
-  margin: 15px;
-  border: 3px solid #73AD21;
-  border-radius: 5px;
+table tr td {
+  border: 1px solid black;
+  padding: 0px 10px 0px 4px;
+  background: #E1E0E0;
+}
+
+
+#salmon_img img {
+  position: fixed;
+  bottom: 0px;
+  margin: auto;
+  opacity: 0.3;
+  left: 300px;
+  top: auto;
+  height: 300px;
+  width: 900px;
 }

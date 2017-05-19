@@ -11,7 +11,7 @@ function Store(location, minimum, maximum, avgcookies) {
 }
 
 // this prototype function generates the amount of random cookies sold per hour
-Store.prototype.randomNumGenerator = function() {
+Store.prototype.randomNumGenerator = function() { //this funtion takes in min/max data and generates a random number without decimals
   return Math.floor(Math.random() * (this.maximum - this.minimum)) + this.minimum; // random cookies sold
 };
 
@@ -46,7 +46,7 @@ function renderHeader() {
 renderHeader(); // calling function to render header on to browser window
 
 
-var tBody = document.getElementById('shell'); // getting shell ID from sales HTML
+var tBody = document.getElementById('shell'); // taking a created element id and assigning it to tBody variable
 
 Store.prototype.renderStores = function() {
   var tableRow = document.createElement('tr');
