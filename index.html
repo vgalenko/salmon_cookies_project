@@ -8,6 +8,31 @@
     <title>Salmon Cookies Project</title>
   </head>
   <body>
+     <form id="main_form">
+        <fieldset>
+          <label for="store_name">Store Name:</label>
+          <input type="text" name="store_name" placeholder="enter the store name" required>
+        </fieldset>
+
+        <fieldset class="questions">
+          <label for="min_cust">Minimum Customers:</label>
+          <input type="number" name="min_cust" placeholder="min # of customers" required>
+        </fieldset>
+
+        <fieldset class="questions">
+          <label for="max_cust">Maximum Customers:</label>
+          <input type="number" name="max_cust" placeholder="max # of customers" required>
+        </fieldset>
+
+        <fieldset class="questions">
+          <label for="avg_sales_cust">Average Sales/Customer</label>
+          <input type="text" name="avg_sales_cust" placeholder="avg sales/customer" required>
+        </fieldset>
+
+        <!-- <div class="clearfix"></div> -->
+        <button id="submit-btn" type="submit">Add Store!</button>
+      </form>
+    
     <header>
         <h1>Pat's Salmon Cookies</h1>
         <span><img src="http://brewvana.com/wp-content/uploads/PNW-01-e1488393888314.png"></span>
